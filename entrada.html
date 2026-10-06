@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es" data-modo="papel">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¿Qué cambia cuando una historia deja de ser solo contada? · Entre libros y pantallas</title>
+  <meta name="description" content="Ventajas y desventajas de la narrativa digital frente a la tradicional.">
+  <script>
+    (function () {
+      try {
+        var m = localStorage.getItem("modo-lectura");
+        if (m === "papel" || m === "pantalla") document.documentElement.setAttribute("data-modo", m);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=IM+Fell+English&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/modo.js" defer></script>
+</head>
+<body>
+  <header class="encabezado">
+    <div class="contenedor-ancho">
+      <a class="marca" href="index.html">Entre libros y pantallas</a>
+      <nav class="navegacion" aria-label="Principal">
+        <a href="index.html">Inicio</a>
+        <a href="entrada.html" aria-current="page">Entrada</a>
+        <a href="sobre-el-autor.html">Sobre el autor</a>
+        <button class="interruptor" id="interruptor" type="button" aria-pressed="false" aria-label="Cambiar a modo pantalla">
+          <span class="op-papel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg>
+            Papel
+          </span>
+          <span class="op-pantalla">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Pantalla
+          </span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="articulo contenedor">
+      <header>
+        <p class="meta">5 de octubre de 2026 · Brayner Stiven Caicedo Marín</p>
+        <h1>¿Qué cambia cuando una historia deja de ser solo contada y pasa a ser interactiva?</h1>
+      </header>
+
+      <p class="capital">La narrativa audiovisual ha evolucionado desde los formatos tradicionales, principalmente lineales, hacia modelos digitales, transmedia y participativos. Karbaum Padilla (2021) y Ruano-López et al. (2022) muestran cómo las nuevas tecnologías han cambiado la manera de producir y consumir contenido. La narrativa digital amplía las posibilidades de comunicación, pero esto no le hace perder valor a la narrativa tradicional.</p>
+
+      <h2>¿Qué gana el lector o usuario?</h2>
+      <p>La narrativa digital permite que el usuario tenga un papel más activo: ya no se limita a escuchar o recibir una historia, sino que puede interactuar con ella, comentarla, compartirla (Ruano-López et al., 2022) e incluso producir nuevo contenido (Karbaum Padilla, 2021; Muñoz-Rico, 2022). Además, una misma narrativa puede contarse desde diferentes formatos y plataformas, mezclando video, texto e imágenes (Muñoz-Rico, 2022). Así, el usuario tiene más posibilidades de explorar el contenido y relacionarse con él.</p>
+
+      <figure>
+        <img src="img/transmedia.png" alt="Íconos de distintos medios y formatos: celular, computador, televisor, micrófono, cámara, consola de videojuegos, correo y lápiz" width="738" height="334" loading="lazy">
+        <figcaption><strong>Figura 1.</strong> <em>Narrativa transmedia: una historia a través de múltiples medios y formatos.</em> Tomado de The Social Media Family (2021).</figcaption>
+      </figure>
+
+      <h2>¿Qué desventajas tiene la narrativa digital?</h2>
+      <p>Esta narrativa también presenta debilidades y riesgos. Al haber muchas plataformas, contenidos y posibilidades de interacción, el relato puede volverse más complejo y fragmentado; además, el usuario puede encontrarse con información poco confiable o perder el sentido central de la historia. Por otro lado, existe una dependencia de las tecnologías y plataformas digitales, que pueden modificar la manera en que el contenido llega al público (Karbaum Padilla, 2021).</p>
+
+      <figure>
+        <a href="img/infografia.jpg" target="_blank" rel="noopener"><img src="img/infografia.jpg" alt="Resumen visual de una revisión sistemática que compara la narrativa y la narrativa digital en Educación Primaria y Secundaria: preguntas, metodología, resultados y discusión" width="1920" height="1080" loading="lazy"></a>
+        <figcaption><strong>Figura 2.</strong> <em>Narrativa vs. narrativa digital: resumen visual de una revisión sistemática.</em> Tomado de Gómez-Martín et al. (2026).</figcaption>
+      </figure>
+
+      <h2>¿Qué se pierde y qué se conserva de la narrativa tradicional?</h2>
+      <p>La narrativa tradicional conserva algo valioso: un mayor control sobre la estructura y el desarrollo del relato. Su carácter principalmente lineal hace que el autor establezca con mayor claridad el recorrido de la historia y que el lector siga una línea determinada (Orihuela, 1997). Frente a los entornos digitales, esta estructura puede favorecer la continuidad y la profundidad de los relatos.</p>
+
+      <h2>Conclusión</h2>
+      <p>En mi opinión, la narrativa digital no debe considerarse un reemplazo absoluto de la tradicional, sino una evolución que amplía las posibilidades de estas narrativas; de hecho, Gómez-Martín et al. (2026) señalan que ambas generan efectos diferenciados, pero complementarios, en el desarrollo de competencias educativas. Su principal fortaleza es hacer que el lector participe más en la obra y permitir que las historias trasciendan un único formato; sin embargo, la narrativa tradicional nos sigue ofreciendo relatos estructurados y controlados. Por eso, el verdadero valor de la narrativa digital está en aprovechar su capacidad de interacción sin perder la coherencia y la profundidad que caracterizan a una buena historia.</p>
+
+      <section class="referencias" aria-labelledby="titulo-referencias">
+        <h2 id="titulo-referencias">Referencias</h2>
+        <p>Gómez-Martín, M., Prieto-Andreu, J. M. y Álvarez-Kurogi, L. (2026). Narrativa vs. narrativa digital en Educación Primaria y Secundaria. Revisión sistemática. <em>Ocnos</em>, <em>25</em>(1). <a href="https://doi.org/10.18239/ocnos_2026.25.1.574">https://doi.org/10.18239/ocnos_2026.25.1.574</a></p>
+        <p>Karbaum Padilla, G. (2021). Una historia audiovisual. En <em>La evolución de la narrativa audiovisual: analógica, transmedia y social media</em> (pp. 18–60). Universidad Peruana de Ciencias Aplicadas (UPC).</p>
+        <p>Muñoz-Rico, M. (2022). Las sagas literarias y sus universos fandom. El caso de Harry Potter como modelo de narrativa transmedial. En G. Paredes Otero (Coord.), <em>Narrativas y usuarios de la sociedad transmedia</em> (pp. 239–262). Dykinson.</p>
+        <p>Orihuela, J. L. (1997). Narraciones interactivas: el futuro no lineal de los relatos en la era digital. <em>Palabra Clave</em>, (2), 37–46. <a href="https://palabraclave.unisabana.edu.co/index.php/palabraclave/article/view/338">https://palabraclave.unisabana.edu.co/index.php/palabraclave/article/view/338</a></p>
+        <p>Ruano-López, S., Fernández-Falero, M. R. y Trabadela-Robles, J. (2022). La televisión social y la interactividad con las audiencias televisivas a través de las redes sociales: estudio de caso. En G. Paredes Otero (Coord.), <em>Narrativas y usuarios de la sociedad transmedia</em> (pp. 300–318). Dykinson.</p>
+        <p>The Social Media Family. (2021, 31 de agosto). <em>¿Qué es la narrativa transmedia?</em> <a href="https://thesocialmediafamily.com/transmedia/">https://thesocialmediafamily.com/transmedia/</a></p>
+      </section>
+
+      <section class="comentarios" aria-labelledby="titulo-comentarios">
+        <h2 id="titulo-comentarios">Comentarios</h2>
+        <div id="giscus"
+             data-repo="USUARIO/REPOSITORIO"
+             data-repo-id="REEMPLAZAR"
+             data-category="Announcements"
+             data-category-id="REEMPLAZAR"></div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p>&copy; 2026 Entre libros y pantallas · Brayner Stiven Caicedo Marín</p>
+      <p>Blog académico · Lectura y Escritura en el Contexto Digital · UNIMINUTO</p>
+      <p>El diseño de la página, los textos y la postura personal son del estudiante. El código de la página (su estructura interna) se generó con Claude, una herramienta de inteligencia artificial, siguiendo las indicaciones de diseño del estudiante. La IA también se usó para resumir las lecturas, resolver dudas conceptuales y revisar la ortografía, la redacción y las citas.</p>
+    </div>
+  </footer>
+</body>
+</html>

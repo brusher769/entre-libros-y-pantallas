@@ -1,0 +1,426 @@
+/* =========================================================
+   Pantalla vs. papel — estilos
+   Dos modos: [data-modo="papel"] (libro antiguo) y
+   [data-modo="pantalla"] (pantalla moderna, acento cian).
+   ========================================================= */
+
+/* ---------- Modo papel (libro antiguo) ---------- */
+:root,
+:root[data-modo="papel"] {
+  --fondo: #efe3c6;
+  --fondo-alt: #e6d6b0;
+  --superficie: #f6ecd4;
+  --texto: #3b2a1a;
+  --texto-suave: #6b5236;
+  --acento: #8a3b12;
+  --acento-suave: #b8743f;
+  --borde: #c9b48a;
+  --sombra: 0 2px 10px rgba(59, 42, 26, 0.12);
+  --fuente-cuerpo: "EB Garamond", Georgia, "Times New Roman", serif;
+  --fuente-titulos: "IM Fell English", "EB Garamond", Georgia, serif;
+  --fuente-ui: "EB Garamond", Georgia, serif;
+  --radio: 2px;
+  --textura:
+    radial-gradient(ellipse at 20% 10%, rgba(255, 250, 235, 0.55), transparent 60%),
+    radial-gradient(ellipse at 85% 90%, rgba(150, 110, 60, 0.18), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(120, 90, 50, 0.025) 0 2px, transparent 2px 4px);
+  color-scheme: light;
+}
+
+/* ---------- Modo pantalla (cian) ---------- */
+:root[data-modo="pantalla"] {
+  --fondo: #0a1120;
+  --fondo-alt: #0f1a2e;
+  --superficie: #111d33;
+  --texto: #dbe7f5;
+  --texto-suave: #8fa3bf;
+  --acento: #22d3ee;
+  --acento-suave: #0e7490;
+  --borde: #1e3354;
+  --sombra: 0 0 0 1px rgba(34, 211, 238, 0.08), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --fuente-cuerpo: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fuente-titulos: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+  --fuente-ui: "JetBrains Mono", ui-monospace, monospace;
+  --radio: 8px;
+  --textura:
+    radial-gradient(ellipse at 15% 0%, rgba(34, 211, 238, 0.10), transparent 55%),
+    radial-gradient(ellipse at 100% 100%, rgba(14, 116, 144, 0.18), transparent 50%);
+  color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--fondo);
+  background-image: var(--textura);
+  background-attachment: fixed;
+  color: var(--texto);
+  font-family: var(--fuente-cuerpo);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+:root[data-modo="pantalla"] body { font-size: 1.05rem; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--acento); text-underline-offset: 3px; }
+a:hover { color: var(--acento-suave); }
+
+:focus-visible { outline: 2px solid var(--acento); outline-offset: 3px; }
+
+.contenedor { width: min(100% - 32px, 760px); margin-inline: auto; }
+.contenedor-ancho { width: min(100% - 32px, 1040px); margin-inline: auto; }
+
+/* ---------- Encabezado ---------- */
+.encabezado {
+  border-bottom: 1px solid var(--borde);
+  background: color-mix(in srgb, var(--fondo) 85%, transparent);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.encabezado .contenedor-ancho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-block: 14px;
+}
+
+.marca {
+  font-family: var(--fuente-titulos);
+  font-size: 1.35rem;
+  color: var(--texto);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.marca:hover { color: var(--acento); }
+
+.navegacion { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+
+.navegacion a {
+  font-family: var(--fuente-ui);
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+  text-decoration: none;
+}
+.navegacion a:hover,
+.navegacion a[aria-current="page"] { color: var(--acento); }
+
+/* ---------- Interruptor papel / pantalla ---------- */
+.interruptor {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 3px;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  background: var(--superficie);
+  cursor: pointer;
+  font-family: var(--fuente-ui);
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.interruptor span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.interruptor svg { width: 15px; height: 15px; }
+
+:root[data-modo="papel"] .interruptor .op-papel,
+:root[data-modo="pantalla"] .interruptor .op-pantalla {
+  background: var(--acento);
+  color: var(--fondo);
+}
+
+/* ---------- Portada del inicio ---------- */
+.portada {
+  padding-block: 72px 48px;
+  text-align: center;
+}
+
+.portada .antetitulo {
+  font-family: var(--fuente-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--acento);
+  margin: 0 0 12px;
+}
+
+.portada h1 {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 7vw, 4.2rem);
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+
+:root[data-modo="pantalla"] .portada h1 { font-weight: 700; letter-spacing: -0.02em; }
+
+.portada .bajada {
+  max-width: 560px;
+  margin: 0 auto;
+  color: var(--texto-suave);
+}
+
+.ornamento {
+  display: block;
+  margin: 28px auto 0;
+  color: var(--acento-suave);
+  font-size: 1.4rem;
+  letter-spacing: 0.6em;
+}
+:root[data-modo="pantalla"] .ornamento { display: none; }
+
+/* ---------- Lista de entradas ---------- */
+.seccion-titulo {
+  font-family: var(--fuente-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+  border-bottom: 1px solid var(--borde);
+  padding-bottom: 8px;
+  margin: 0 0 24px;
+}
+
+.tarjeta {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+  padding: 20px;
+  margin-bottom: 24px;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.tarjeta:hover { transform: translateY(-2px); border-color: var(--acento); }
+
+.tarjeta .miniatura {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radio);
+  overflow: hidden;
+  background: var(--fondo-alt);
+}
+.tarjeta .miniatura img { width: 100%; height: 100%; object-fit: cover; }
+
+.tarjeta h3 {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin: 4px 0 8px;
+  color: var(--texto);
+}
+:root[data-modo="pantalla"] .tarjeta h3 { font-weight: 700; font-size: 1.25rem; }
+
+.tarjeta p { margin: 0; color: var(--texto-suave); }
+
+.meta {
+  font-family: var(--fuente-ui);
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+/* ---------- Entrada (artículo) ---------- */
+.articulo { padding-block: 56px 32px; }
+
+.articulo header { margin-bottom: 36px; }
+
+.articulo h1 {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: clamp(2rem, 5.5vw, 3.1rem);
+  line-height: 1.15;
+  margin: 8px 0 12px;
+}
+:root[data-modo="pantalla"] .articulo h1 { font-weight: 700; letter-spacing: -0.02em; }
+
+.articulo h2 {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  margin: 2.2em 0 0.6em;
+}
+:root[data-modo="pantalla"] .articulo h2 {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--acento);
+}
+:root[data-modo="pantalla"] .articulo h2::before { content: "> "; opacity: 0.6; }
+
+.articulo p { margin: 0 0 1.1em; }
+
+/* Letra capital al inicio del artículo, solo en modo papel */
+:root[data-modo="papel"] .articulo .capital::first-letter {
+  float: left;
+  font-family: var(--fuente-titulos);
+  font-size: 3.6em;
+  line-height: 0.85;
+  padding: 6px 10px 0 0;
+  color: var(--acento);
+}
+
+.articulo blockquote {
+  margin: 1.6em 0;
+  padding: 0.4em 0 0.4em 1.2em;
+  border-left: 3px solid var(--acento);
+  color: var(--texto-suave);
+  font-style: italic;
+}
+:root[data-modo="pantalla"] .articulo blockquote {
+  font-style: normal;
+  background: var(--superficie);
+  border-radius: 0 var(--radio) var(--radio) 0;
+  padding: 0.8em 1.2em;
+}
+
+/* Figuras: infografía, imágenes y GIF */
+figure { margin: 2em 0; }
+
+figure img {
+  width: 100%;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+figcaption {
+  margin-top: 10px;
+  font-family: var(--fuente-ui);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--texto-suave);
+}
+
+/* Referencias en APA (sangría francesa) */
+.referencias p {
+  padding-left: 2em;
+  text-indent: -2em;
+  font-size: 0.98em;
+}
+
+/* Texto pendiente: marca visible para lo que falta escribir */
+.pendiente {
+  background: repeating-linear-gradient(-45deg,
+    color-mix(in srgb, var(--acento) 10%, transparent) 0 8px,
+    transparent 8px 16px);
+  border: 1px dashed var(--acento);
+  border-radius: var(--radio);
+  padding: 2px 6px;
+  color: var(--acento);
+  font-family: var(--fuente-ui);
+  font-size: 0.9em;
+}
+
+.caja-pendiente {
+  display: grid;
+  place-items: center;
+  min-height: 260px;
+  padding: 24px;
+  text-align: center;
+  border: 2px dashed var(--acento);
+  border-radius: var(--radio);
+  background: color-mix(in srgb, var(--acento) 6%, transparent);
+  color: var(--acento);
+  font-family: var(--fuente-ui);
+  font-size: 0.95rem;
+}
+
+/* ---------- Comentarios ---------- */
+.comentarios {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--borde);
+}
+
+.comentarios h2 {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin: 0 0 16px;
+}
+:root[data-modo="pantalla"] .comentarios h2 { font-weight: 700; font-size: 1.2rem; }
+
+/* ---------- Sobre el autor ---------- */
+.autor {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 32px;
+  align-items: start;
+  padding-block: 56px;
+}
+
+.autor .foto {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--acento);
+  background: var(--fondo-alt);
+}
+.autor .foto img { width: 100%; height: 100%; object-fit: cover; }
+
+.autor h1 {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  line-height: 1.15;
+  margin: 0 0 8px;
+}
+:root[data-modo="pantalla"] .autor h1 { font-weight: 700; }
+
+/* ---------- Pie de página ---------- */
+.pie {
+  margin-top: 64px;
+  padding-block: 28px;
+  border-top: 1px solid var(--borde);
+  font-family: var(--fuente-ui);
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  text-align: center;
+}
+.pie p { margin: 4px 0; }
+
+/* ---------- Móvil ---------- */
+@media (max-width: 640px) {
+  body { font-size: 1.08rem; }
+  .encabezado .contenedor-ancho { padding-block: 10px; }
+  .navegacion { gap: 12px; width: 100%; justify-content: space-between; }
+  .portada { padding-block: 48px 32px; }
+  .tarjeta { grid-template-columns: 1fr; gap: 14px; padding: 14px; }
+  .autor { grid-template-columns: 1fr; gap: 20px; justify-items: center; text-align: center; }
+  .autor .foto { width: 150px; }
+  .articulo { padding-block: 36px 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* Enlaces largos (DOI, URL) en las referencias: que no desborden en móvil */
+.articulo { overflow-wrap: anywhere; }
+.referencias a { word-break: break-all; }

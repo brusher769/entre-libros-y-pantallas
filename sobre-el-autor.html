@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es" data-modo="papel">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobre el autor · Entre libros y pantallas</title>
+  <meta name="description" content="Sobre Brayner Stiven Caicedo Marín.">
+  <script>
+    (function () {
+      try {
+        var m = localStorage.getItem("modo-lectura");
+        if (m === "papel" || m === "pantalla") document.documentElement.setAttribute("data-modo", m);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=IM+Fell+English&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/modo.js" defer></script>
+</head>
+<body>
+  <header class="encabezado">
+    <div class="contenedor-ancho">
+      <a class="marca" href="index.html">Entre libros y pantallas</a>
+      <nav class="navegacion" aria-label="Principal">
+        <a href="index.html">Inicio</a>
+        <a href="entrada.html">Entrada</a>
+        <a href="sobre-el-autor.html" aria-current="page">Sobre el autor</a>
+        <button class="interruptor" id="interruptor" type="button" aria-pressed="false" aria-label="Cambiar a modo pantalla">
+          <span class="op-papel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg>
+            Papel
+          </span>
+          <span class="op-pantalla">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Pantalla
+          </span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="autor contenedor">
+      <div class="foto">
+        <img src="img/autor.jpg" alt="Foto de Brayner Stiven Caicedo Marín" width="480" height="480">
+      </div>
+      <div>
+        <p class="meta">Sobre el autor</p>
+        <h1>Brayner Stiven Caicedo Marín</h1>
+        <p class="meta">Estudiante de Ingeniería de Sistemas · UNIMINUTO</p>
+        <p>Mi nombre es Brayner Stiven Caicedo Marín y soy estudiante de Ingeniería de Sistemas en la Corporación Universitaria Minuto de Dios (UNIMINUTO). Soy una persona a la que le gusta aprender a hacer las cosas bien. Mis pasatiempos son escribir, jugar y ver caricaturas. Siempre estoy dispuesto a aprender más y a intentar algo nuevo.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p>&copy; 2026 Entre libros y pantallas · Brayner Stiven Caicedo Marín</p>
+      <p>Blog académico · Lectura y Escritura en el Contexto Digital · UNIMINUTO</p>
+      <p>El diseño de la página, los textos y la postura personal son del estudiante. El código de la página (su estructura interna) se generó con Claude, una herramienta de inteligencia artificial, siguiendo las indicaciones de diseño del estudiante. La IA también se usó para resumir las lecturas, resolver dudas conceptuales y revisar la ortografía, la redacción y las citas.</p>
+    </div>
+  </footer>
+</body>
+</html>
